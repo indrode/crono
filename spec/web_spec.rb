@@ -43,6 +43,15 @@ describe Crono::Web do
     end
   end
 
+  describe '/log' do
+    it 'should show the full log' do
+      get "/log"
+      expect(last_response).to be_ok
+      expect(last_response.body).to include('Log')
+      expect(last_response.body).to include('Logfile does not exist')
+    end
+  end
+
   describe '/job/:id' do
     it 'should show job log' do
       get "/job/#{@test_job.id}"

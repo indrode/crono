@@ -19,6 +19,8 @@
         %h1
           Crono #{Crono::VERSION}
           %small Dashboard
+        %a{href: url("/log") }
+          %small View Log
       = yield
 
     %script{ src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js' }

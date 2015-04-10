@@ -14,6 +14,12 @@ module Crono
       haml :dashboard, format: :html5
     end
 
+    get '/log' do
+      logfile = Crono::Config.new.logfile
+      @log = File.file?(logfile) ? File.read(logfile) : 'Logfile does not exist'
+      haml :log
+    end
+
     get '/job/:id' do
       @job = Crono::CronoJob.find(params[:id])
       haml :job
