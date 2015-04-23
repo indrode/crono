@@ -1,8 +1,9 @@
-%ol.breadcrumb
-  %li
-    %a{ href: url('/') } Home
-  %li.active= 'Log'
+%header.container.blue-grey.lighten-4.grey-text.text-darken-4
+  %h4 Full Log
+  %a{ href: url('/') }
+    %i.mdi-navigation-chevron-left
+    Back to Home
 
-%h2 Log
+%main.container.blue-grey.lighten-4.grey-text.text-darken-4
 
-%pre= @log
+  %pre= @log
