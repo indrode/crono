@@ -9,6 +9,10 @@ module Crono
     set :public_folder, proc { "#{root}/assets" }
     set :views, proc { "#{root}/views" }
 
+    use Rack::Auth::Basic, "Restricted Area" do |username, password|
+      username == ENV['CRONO_USER'] and password == ENV['CRONO_PW']
+    end
+
     get '/' do
       @jobs = Crono::CronoJob.all
       haml :dashboard, format: :html5
